@@ -42,6 +42,7 @@ Dentro de cada carpeta, los archivos están nombrados según el tipo de vulnerab
 
 
    Contribuciones
+   * m10sec
 
 Este proyecto acepta contribuciones para mejorar o ampliar el conjunto de payloads. Si deseas contribuir, por favor sigue estos pasos:
 
