@@ -1,28 +1,46 @@
 # PayloadCollection
-XSS - SQL - etc payload collection 
-# m10sec@proton.me
 
-# Payload Collection
+Colección de payloads para pruebas de seguridad: XSS, SQLi, Command Injection, SSRF y más.
 
-**Payload Collection** es un repositorio dedicado a almacenar y organizar una amplia variedad de payloads útiles para pruebas de seguridad en aplicaciones web y otros entornos. Este repositorio está diseñado para servir como una referencia rápida para pentesters, profesionales de seguridad y desarrolladores interesados en comprender o mitigar vulnerabilidades de seguridad comunes.
+Desarrollado por **m10sec** – m10sec@proton.me
+---
 
+## 📘 Descripción
+
+**PayloadCollection** es un repositorio curado de payloads utilizados en pruebas de penetración (pentesting), hacking ético y análisis de vulnerabilidades. Esta colección está orientada a facilitar el trabajo de profesionales de ciberseguridad, investigadores, estudiantes y desarrolladores que buscan comprender, mitigar o validar vulnerabilidades comunes en aplicaciones web y entornos relacionados.
+---
 ## Contenidos
 
-El repositorio incluye payloads organizados por categorías, tales como:
+## 📂 Categorías incluidas
 
-- **Inyección SQL (SQL Injection)**: Payloads para explotación y detección de vulnerabilidades de SQLi.
-- **Cross-Site Scripting (XSS)**: Diversos payloads para pruebas de XSS reflejado, almacenado y DOM-based.
-- **Command Injection**: Payloads para pruebas de inyección de comandos en distintos entornos y lenguajes.
-- **Directory Traversal**: Ejemplos de traversal para acceso no autorizado a archivos del sistema.
-- **Server-Side Request Forgery (SSRF)**: Payloads para pruebas de SSRF en diferentes servidores y entornos.
-- **Otros**: Payloads para pruebas de vulnerabilidades adicionales, como LDAP Injection, XPath Injection, XXE, etc.
+Los payloads están organizados por tipo de vulnerabilidad para un acceso rápido y práctico:
 
-> **Nota:** Cada payload está destinado a ser utilizado en entornos de prueba o con permiso explícito del propietario del sistema. No intentes ejecutar estos payloads en sistemas sin autorización.
+- **🔴 SQL Injection (SQLi)**  
+  Explotación y detección de inyecciones SQL en distintos contextos (GET, POST, headers, cookies).
 
+- **🟡 Cross-Site Scripting (XSS)**  
+  Reflejado, almacenado y DOM-based. Incluye vectores clásicos y evasión de filtros.
+
+- **⚫ Command Injection**  
+  Payloads para inyección de comandos en shells UNIX y Windows.
+
+- **📁 Directory Traversal**  
+  Acceso arbitrario a archivos del sistema a través de navegación de rutas.
+
+- **🌐 Server-Side Request Forgery (SSRF)**  
+  Payloads para forzar a un servidor a hacer peticiones hacia destinos internos o externos.
+
+- **🧪 Otros (Misceláneos)**  
+  LDAP Injection, XPath Injection, XXE, Local File Inclusion (LFI), Remote File Inclusion (RFI), etc.
+
+- ⚠️**Advertencia:** Este material es solo para uso educativo y de investigación. No utilices estos payloads en sistemas sin autorización explícita. El uso indebido puede ser ilegal.
+
+---
 ## Estructura del Repositorio
 
-Cada categoría de payload tiene su propio directorio y está organizada en archivos de texto, proporcionando ejemplos claros y listos para usar. La estructura del repositorio es la siguiente:
+## 📁 Estructura del repositorio
 
+```bash
 PayloadCollection/
 ├── SQL_Injection/
 ├── XSS/
@@ -30,19 +48,29 @@ PayloadCollection/
 ├── Directory_Traversal/
 ├── SSRF/
 └── Other/
+```
 
 Dentro de cada carpeta, los archivos están nombrados según el tipo de vulnerabilidad y el lenguaje o tecnología específica.
 
+---
 ## Uso
 
-1. Clona el repositorio en tu máquina local:
+Clona el repositorio en tu máquina local:
 
    ```bash
    git clone https://github.com/moften/PayloadCollection.git
 
+   ```
 
-   Contribuciones
-   * m10sec
+---
+
+## 📬 Contacto
+
+¿Dudas o sugerencias?
+
+m10sec
+📧 m10sec@proton.me
+🐙 github.com/moften
 
 Este proyecto acepta contribuciones para mejorar o ampliar el conjunto de payloads. Si deseas contribuir, por favor sigue estos pasos:
 

